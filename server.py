@@ -112,7 +112,7 @@ def main():
     atexit.register(cleanup)
     # The host and port for the chat service
     host = ""
-    port = 24001
+    port = 24000
     # Creates the socket for a TCP application
     socketFamily = socket.AF_INET
     socketType = socket.SOCK_STREAM

@@ -49,7 +49,7 @@ def main():
     colorama.init()
     # The host and port of the chat server
     host = "localhost"
-    port = 24001
+    port = 24000
     # Creates the socket for a TCP application
     socketFamily = socket.AF_INET
     socketType = socket.SOCK_STREAM
