@@ -58,14 +58,15 @@ def clientThread(client):
             else:
                 # encryption
                 # generate two random number for shift key
-                cs = Caesar(random.randint(25,100),random.randint(100,50)) 
+                cs = Caesar(random.randint(0,50),random.randint(25,99)) 
                 encrypt = cs.Encryption(message)
                 print("{} ({}): {}".format(address, user, encrypt))
                 # decryption
                 decrypt = cs.Decryption(encrypt)
                 # send message target user from user
                 broadcast(decrypt, user)
-        except:
+        except Exception as a:
+            print('a: ', a)
             print("{} ({}) has left.".format(address, user))
             del addresses[client]
             del users[client]
@@ -111,7 +112,7 @@ def main():
     atexit.register(cleanup)
     # The host and port for the chat service
     host = ""
-    port = 24000
+    port = 24001
     # Creates the socket for a TCP application
     socketFamily = socket.AF_INET
     socketType = socket.SOCK_STREAM
