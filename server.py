@@ -2,7 +2,7 @@ import atexit
 import socket
 import threading
 import random
-from algorithm import Ceaser
+from algorithm import Caesar
 
 def connectionThread(sock):
     # Accepts a connection request and stores both a socket object and its IP address
@@ -57,11 +57,13 @@ def clientThread(client):
                 client.send("Available commands are /help, /online and /quit".encode("utf8"))
             else:
                 # encryption
-                cs = Ceaser(random.randint(25,100),random.randint(100,50))
+                # generate two random number for shift key
+                cs = Caesar(random.randint(25,100),random.randint(100,50)) 
                 encrypt = cs.Encryption(message)
                 print("{} ({}): {}".format(address, user, encrypt))
                 # decryption
                 decrypt = cs.Decryption(encrypt)
+                # send message target user from user
                 broadcast(decrypt, user)
         except:
             print("{} ({}) has left.".format(address, user))
