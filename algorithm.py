@@ -33,10 +33,10 @@ class Caesar:
                 plaintext += chr((ord(new_special) - self.key_val - 97) % 26 + 97)
         return plaintext+numbers
 
-
-user1 = 25 # pw1
-user2 = 35 # pw2
-cs = Caesar(user1, user2) # call class
-text = "End to end Encrypted Secure Python Chat 2021 2020" # define text
-print(cs.Encryption(text)) # encryt
-print(cs.Decryption(cs.Encryption(text))) # decryt
+if __name__ == '__main__':
+    user1 = 25 # pw1
+    user2 = 35 # pw2
+    cs = Caesar(user1, user2) # call class
+    text = "End to end Encrypted Secure Python Chat 2021 2020" # define text
+    print(cs.Encryption(text)) # encryt
+    print(cs.Decryption(cs.Encryption(text))) # decryt
